@@ -5,7 +5,6 @@ import ch.cern.todo.model.Role;
 import ch.cern.todo.model.dto.ClientResponseDTO;
 import ch.cern.todo.model.dto.TaskResponseDTO;
 
-
 import java.util.stream.Collectors;
 
 public class ClientMapper {

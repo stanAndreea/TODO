@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Getter
@@ -38,7 +37,7 @@ public class Task {
     @JsonIgnore
     private TaskCategory taskCategory;
 
-    public Task (String taskName, String taskDescription, LocalDate localDateTime){
+    public Task(String taskName, String taskDescription, LocalDate localDateTime) {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.deadline = localDateTime;

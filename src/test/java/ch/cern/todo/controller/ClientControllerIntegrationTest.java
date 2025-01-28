@@ -33,7 +33,6 @@ public class ClientControllerIntegrationTest {
     @MockitoBean
     private ClientService clientService;
 
-
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -42,7 +41,6 @@ public class ClientControllerIntegrationTest {
 
     @Test
     @WithMockUser(roles = "ADMIN")
-    // Retrieves a list of all clients
     public void testGetClientsByRole_withAdminRole_shouldReturnClientList() throws Exception {
         List<ClientResponseDTO> mockClients = List.of(
                 ClientResponseDTO.builder()

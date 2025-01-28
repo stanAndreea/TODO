@@ -1,9 +1,8 @@
-package ch.cern.todo;
+package ch.cern.todo.service;
 
 import ch.cern.todo.model.Client;
 import ch.cern.todo.model.Role;
 import ch.cern.todo.repository.ClientRepository;
-import ch.cern.todo.service.CustomUserDetailsService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

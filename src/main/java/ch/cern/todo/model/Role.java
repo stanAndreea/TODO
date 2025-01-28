@@ -20,7 +20,7 @@ public class Role {
     @JsonIgnore
     private int id;
 
-    @Column (unique = true)
+    @Column(unique = true)
     private String roleName;
     private String roleDescription;
 
@@ -28,11 +28,12 @@ public class Role {
     @JsonIgnore
     private Set<Client> clients;
 
-    public Role (String roleName, String roleDescription){
+    public Role(String roleName, String roleDescription) {
         this.roleName = roleName;
         this.roleDescription = roleDescription;
     }
-    public Role (String roleName){
+
+    public Role(String roleName) {
         this.roleName = roleName;
     }
 

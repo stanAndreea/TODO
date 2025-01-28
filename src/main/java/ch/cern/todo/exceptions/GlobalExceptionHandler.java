@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
         response.put("message", clientException.getMessage());
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
-    } // TODO verify why is not working swagger
+    }
 
 
     @ExceptionHandler(DataIntegrityViolationException .class)

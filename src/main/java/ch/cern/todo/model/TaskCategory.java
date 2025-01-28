@@ -5,11 +5,13 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class TaskCategory {
@@ -25,12 +27,12 @@ public class TaskCategory {
     @JsonIgnore
     private Set<Task> tasks;
 
-    public TaskCategory (String categoryName, String categoryDescription){
+    public TaskCategory(String categoryName, String categoryDescription) {
         this.categoryName = categoryName;
         this.categoryDescription = categoryDescription;
     }
 
-    public TaskCategory (String categoryName){
+    public TaskCategory(String categoryName) {
 
     }
 }
