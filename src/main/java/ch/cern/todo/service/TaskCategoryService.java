@@ -2,7 +2,6 @@ package ch.cern.todo.service;
 
 import ch.cern.todo.model.TaskCategory;
 import ch.cern.todo.repository.TaskCategoryRepository;
-import ch.cern.todo.util.HelperUtils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,7 +13,7 @@ public class TaskCategoryService {
         this.taskCategoryRepository = taskCategoryRepository;
     }
 
-    public void createCategory (TaskCategory taskCategory){
+    public void createCategory(TaskCategory taskCategory) {
         taskCategoryRepository.save(taskCategory);
     }
 }

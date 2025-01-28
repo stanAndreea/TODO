@@ -32,10 +32,6 @@ public class RoleService {
         roleRepository.save(role);
     }
 
-//    public List<Role> getAllUserByRoleName (String roleName){
-//
-//    }
-
     public Role updateRole(String roleName, Role role) {
         HelperUtils.validateNotEmpty(roleName);
 

@@ -1,15 +1,17 @@
 package ch.cern.todo.service;
 
+import ch.cern.todo.exceptions.BadRequestException;
 import ch.cern.todo.model.Client;
 import ch.cern.todo.model.Task;
 import ch.cern.todo.model.TaskCategory;
 import ch.cern.todo.repository.ClientRepository;
 import ch.cern.todo.repository.TaskCategoryRepository;
 import ch.cern.todo.repository.TaskRepository;
-import ch.cern.todo.exceptions.BadRequestException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.*;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -18,8 +20,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class TaskServiceTest {
 

@@ -7,8 +7,6 @@ import java.util.Optional;
 
 public interface TaskCategoryRepository extends JpaRepository<TaskCategory, Long> {
 
-//    TaskCategory findByCategoryName(String name);
-
     Optional<TaskCategory> findByCategoryName(String categoryName);
 
 }

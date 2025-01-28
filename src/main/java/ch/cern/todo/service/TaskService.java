@@ -28,27 +28,27 @@ public class TaskService {
         this.taskCategoryRepository = taskCategoryRepository;
     }
 
-    public List<Task> searchTasks (String username, LocalDate localDate, String taskName){
-        Long clientId = clientRepository.findClientByUsername(username).orElseThrow(()-> new BadRequestException("Client doesn't exist","Client doesn't exist in our database")).getId();
+    public List<Task> searchTasks(String username, LocalDate localDate, String taskName) {
+        Long clientId = clientRepository.findClientByUsername(username).orElseThrow(() -> new BadRequestException("Client doesn't exist", "Client doesn't exist in our database")).getId();
 
-        return taskRepository.findTasksByClientIdAndDeadlineAndTaskName(clientId,localDate,taskName);
+        return taskRepository.findTasksByClientIdAndDeadlineAndTaskName(clientId, localDate, taskName);
     }
 
 
     public Page<Task> searchTasksByUsernameAndCategory(String username, String categoryName, Pageable pageable) {
-        Long clientId = clientRepository.findClientByUsername(username).orElseThrow(()-> new BadRequestException("Client doesn't exist","Client doesn't exist in our database")).getId();
-        Long categoryId = taskCategoryRepository.findByCategoryName(categoryName).orElseThrow(()-> new BadRequestException("Category doesn't exist","Category doesn't exist in our database")).getId();
+        Long clientId = clientRepository.findClientByUsername(username).orElseThrow(() -> new BadRequestException("Client doesn't exist", "Client doesn't exist in our database")).getId();
+        Long categoryId = taskCategoryRepository.findByCategoryName(categoryName).orElseThrow(() -> new BadRequestException("Category doesn't exist", "Category doesn't exist in our database")).getId();
 
         return taskRepository.findTasksByUsernameAndCategory(clientId, categoryId, pageable);
     }
 
 
-    public List<Task> getAllTasks (){
+    public List<Task> getAllTasks() {
         return taskRepository.findAll();
     }
 
     @Transactional
-    public void createTask(Task task, String category, String currentUser){
+    public void createTask(Task task, String category, String currentUser) {
 
         // Find the client by its ID
         Client client = clientRepository.findClientByUsername(currentUser)

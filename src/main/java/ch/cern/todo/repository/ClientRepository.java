@@ -12,12 +12,8 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
     Optional<Client> findClientByUsername(String username);
 
-    boolean existsByUsername(String username);
-
     @EntityGraph(attributePaths = {"tasks", "roles"})
     Optional<Client> findWithTaskAndRoleByUsername(String username);
-
-    void deleteByUsername(String username);
 
     @Query("SELECT c FROM Client c JOIN c.roles r WHERE r.id = :roleId")
     List<Client> findClientsByRoleId(int roleId);

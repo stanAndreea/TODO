@@ -15,14 +15,6 @@ import java.util.List;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
-//   @Query("SELECT t FROM Task t WHERE t.client_id = :client_id " +
-//            "AND t.deadline = ':deadline' " +
-//            "AND t.task_name LIKE '%:task_name%'")
-//    List<Task> findTasksByClientIdAndDeadlineAndTaskName(@Param("client_id") Long clientId, @Param("deadline") LocalDate deadline,
-//                                                      @Param("task_name") String taskName);
-
-
-
     @Query("SELECT t FROM Task t WHERE t.client.id = :client_id " +
             "AND t.deadline = :deadline " +
             "AND LOWER(t.taskName) LIKE LOWER(CONCAT('%', :task_name, '%'))")

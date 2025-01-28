@@ -14,7 +14,7 @@ public class HelperUtils {
 
     public static void validateNotEmpty(String value) {
         if (value == null || value.trim().isEmpty()) {
-            throw new BadRequestException("Incomplete data",  "Field cannot be null or empty");
+            throw new BadRequestException("Incomplete data", "Field cannot be null or empty");
         }
     }
 

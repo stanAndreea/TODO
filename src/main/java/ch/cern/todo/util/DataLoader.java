@@ -1,6 +1,5 @@
 package ch.cern.todo.util;
 
-import ch.cern.todo.exceptions.BadRequestException;
 import ch.cern.todo.model.Client;
 import ch.cern.todo.model.Role;
 import ch.cern.todo.model.Task;

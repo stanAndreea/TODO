@@ -28,12 +28,6 @@ public class RoleController {
         return ResponseEntity.status(HttpStatus.OK).body(roleService.getAllRoles());
     }
 
-//    @GetMapping("/search")
-//    public ResponseEntity<List<Role>> getAllUserByRoleName(@RequestParam String roleName){
-//
-//
-//    }
-
     @Operation(summary = "Add a new role", description = "Creates a new role in the system")
     @PostMapping
     public ResponseEntity<String> addNewRole(@RequestBody Role role) {
