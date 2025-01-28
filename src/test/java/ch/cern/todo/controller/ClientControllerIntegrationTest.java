@@ -2,16 +2,12 @@ package ch.cern.todo.controller;
 
 
 import ch.cern.todo.model.Client;
-import ch.cern.todo.model.TaskCategory;
 import ch.cern.todo.model.dto.ClientResponseDTO;
 import ch.cern.todo.service.ClientService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -23,25 +19,20 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(ClientController.class)
 @RequestMapping("/api/clients")
 public class ClientControllerIntegrationTest {
-//    @Autowired
-//    private MockMvc mockMvc;
-//
-//    @MockitoBean
-//    private ClientService clientService;
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockitoBean
     private ClientService clientService;
+
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -79,18 +70,6 @@ public class ClientControllerIntegrationTest {
                 .andExpect(jsonPath("$[1].username").value("JaneDoe"));
     }
 
-//    @Test
-//    @WithMockUser(username = "testuser", roles = "USER")
-//    public void testDeleteClient_shouldReturnOk() throws Exception {
-//        // Mock the deleteClient method to do nothing
-//        Mockito.doNothing().when(clientService).deleteClient(Mockito.eq("testuser"));
-//
-//        // Perform the DELETE request with basic authentication
-//        mockMvc.perform(delete("/api/clients/testuser")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk()) // HTTP 200 OK
-//                .andExpect(content().string("Client deleted successfully"));
-//    }
 
     @Test
     @WithMockUser(roles = "ADMIN") // Simulate an authenticated ADMIN user
