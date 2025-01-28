@@ -1,5 +1,6 @@
 package ch.cern.todo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,12 +15,14 @@ import java.util.Set;
 public class TaskCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
 
     private String categoryName;
     private String categoryDescription;
 
     @OneToMany(mappedBy = "taskCategory", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Task> tasks;
 
     public TaskCategory (String categoryName, String categoryDescription){
