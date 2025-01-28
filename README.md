@@ -41,7 +41,7 @@ When starting the application for the first time, follow these steps:
 Once the application is running, you can access the **Swagger UI** for exploring the available endpoints:
 
 - Open your browser and visit: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
-
+  ![Swagger](swagger.png)
 This will allow you to view and interact with all available REST endpoints.
 
 ---
